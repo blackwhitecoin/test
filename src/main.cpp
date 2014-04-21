@@ -2030,8 +2030,8 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot) const
 
 	// blacklist block 38847 of old chain
 	// keep it for another version, can be removed once blockchain stablized
-	if (GetHash() == uint256("0x0000000138efd2ac0c90f8cd1c17cf29e07686f9108778d29b9e38228bdc502e"))
-    return error("CheckBlock() 38847: hash == 0000000138efd2ac0c90f8cd1c17cf29e07686f9108778d29b9e38228bdc502e");
+	if (GetHash() == uint256("0x0000063cc34077e91bed5cdf7154baf6322870a13dab8b371af71950d91fb624"))
+    return error("CheckBlock() 38847: hash == 0000063cc34077e91bed5cdf7154baf6322870a13dab8b371af71950d91fb624");
 	 
     // Size limits
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
@@ -2577,7 +2577,7 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nTime    = 1398063958;
         block.nTime    = 1398063958;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 552634;
+        block.nNonce   = 1399051;
         if (true  && (block.GetHash() != hashGenesisBlock)) {
 
         // This will figure out a valid hash and Nonce if you're
@@ -2600,7 +2600,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
 
-        assert(block.hashMerkleRoot == uint256("f6c4b1f57acf70f98ad8074fe9e3db608ddcb4dad4ab7cb1960eaebd8e9d379f"));
+        assert(block.hashMerkleRoot == uint256("0xf32d6ab562de7cbac39628d042ad032e4b729819e9a47a4c3b9763bfdc3f80a0"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
 
         // Start new block file
