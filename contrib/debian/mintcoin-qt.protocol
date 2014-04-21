@@ -1,6 +1,6 @@
 [Protocol]
-exec=whitecoin-qt '%u'
-protocol=whitecoin
+exec=blackwhitecoin-qt '%u'
+protocol=blackwhitecoin
 input=none
 output=none
 helper=true

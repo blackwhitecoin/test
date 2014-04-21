@@ -1,13 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Whitecoin
-Comment=Whitecoin P2P Cryptocurrency
-Comment[fr]=Whitecoin, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Whitecoin, eşten eşe kriptografik sanal para birimi
-Comment[es]=Whitecoin, una criptomoneda P2P
-Exec=/usr/bin/whitecoin-qt
+Name=Blackwhitecoin
+Comment=Blackwhitecoin P2P Cryptocurrency
+Comment[fr]=Blackwhitecoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Blackwhitecoin, eşten eşe kriptografik sanal para birimi
+Comment[es]=Blackwhitecoin, una criptomoneda P2P
+Exec=/usr/bin/blackwhitecoin-qt
 Terminal=false
 Type=Application
 Icon=/usr/share/pixmaps/bitcoin80.xpm
-MimeType=x-scheme-handler/whitecoin;
+MimeType=x-scheme-handler/blackwhitecoin;
 Categories=Office;

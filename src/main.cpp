@@ -45,7 +45,7 @@ unsigned int nStakeMinAge = 60 * 60 * 24 * 2;	// minimum age for coin age: 2d
 unsigned int nStakeMaxAge = -1;	// stake age of full weight: -1
 unsigned int nStakeTargetSpacing = 90;			// 90 sec block spacing
 
-int64 nChainStartTime = 1397400948;
+int64 nChainStartTime = 1398063958;
 int nCoinbaseMaturity = 350;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -68,7 +68,7 @@ map<uint256, map<uint256, CDataStream*> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Whitecoin Signed Message:\n";
+const string strMessageMagic = "Blackwhitecoin Signed Message:\n";
 
 double dHashesPerSec;
 int64 nHPSTimerStart;
@@ -1519,8 +1519,8 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     // Now that the whole chain is irreversibly beyond that time it is applied to all blocks except the
     // two in the chain that violate it. This prevents exploiting the issue against nodes in their
     // initial block download.
-    bool fEnforceBIP30 = true; // Always active in Whitecoin
-    bool fStrictPayToScriptHash = true; // Always active in Whitecoin
+    bool fEnforceBIP30 = true; // Always active in Blackwhitecoin
+    bool fStrictPayToScriptHash = true; // Always active in Blackwhitecoin
 
     //// issue here: it doesn't know the version
     unsigned int nTxPos;
@@ -2468,7 +2468,7 @@ bool CheckDiskSpace(uint64 nAdditionalBytes)
         string strMessage = _("Warning: Disk space is low!");
         strMiscWarning = strMessage;
         printf("*** %s\n", strMessage.c_str());
-        uiInterface.ThreadSafeMessageBox(strMessage, "Whitecoin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+        uiInterface.ThreadSafeMessageBox(strMessage, "Blackwhitecoin", CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
         StartShutdown();
         return false;
     }
@@ -2561,7 +2561,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "I get knocked down but I get up again.";
+        const char* pszTimestamp = "Hurray my first new coin.";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2574,7 +2574,8 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1397400948;
+        block.nTime    = 1398063958;
+        block.nTime    = 1398063958;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
         block.nNonce   = 552634;
         if (true  && (block.GetHash() != hashGenesisBlock)) {
