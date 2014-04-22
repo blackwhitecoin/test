@@ -45,7 +45,7 @@ unsigned int nStakeMinAge = 60 * 60 * 24 * 2;	// minimum age for coin age: 2d
 unsigned int nStakeMaxAge = -1;	// stake age of full weight: -1
 unsigned int nStakeTargetSpacing = 90;			// 90 sec block spacing
 
-int64 nChainStartTime = 1398063958;
+int64 nChainStartTime = 1398131635;
 int nCoinbaseMaturity = 350;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2030,8 +2030,8 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot) const
 
 	// blacklist block 38847 of old chain
 	// keep it for another version, can be removed once blockchain stablized
-	if (GetHash() == uint256("0x0000063cc34077e91bed5cdf7154baf6322870a13dab8b371af71950d91fb624"))
-    return error("CheckBlock() 38847: hash == 0000063cc34077e91bed5cdf7154baf6322870a13dab8b371af71950d91fb624");
+	//if (GetHash() == uint256("0x0000028c63be4c59158fde35f6a65dcb877a094434fff8e6f5d76789d9824e37"))
+    //return error("CheckBlock() 38847: hash == 0000028c63be4c59158fde35f6a65dcb877a094434fff8e6f5d76789d9824e37");
 	 
     // Size limits
     if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
@@ -2561,7 +2561,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "Hurray my first new coin.";
+        const char* pszTimestamp = "APNewsBreak: US weighs curbing deportations";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2574,10 +2574,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1398063958;
-        block.nTime    = 1398063958;
+        block.nTime    = 1398131635;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 1399051;
+        block.nNonce   = 549970;
         if (true  && (block.GetHash() != hashGenesisBlock)) {
 
         // This will figure out a valid hash and Nonce if you're
@@ -2600,7 +2599,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
 
-        assert(block.hashMerkleRoot == uint256("0xf32d6ab562de7cbac39628d042ad032e4b729819e9a47a4c3b9763bfdc3f80a0"));
+        assert(block.hashMerkleRoot == uint256("0xbd5f7095ea26fa8088142fccd71891ff2a9312d8573c4a9f0ba0983ea961ba28"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
 
         // Start new block file
